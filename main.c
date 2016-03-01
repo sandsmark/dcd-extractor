@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
     dcd_v2_t dcd_table;
 
-    unsigned char byte = getc(file);
+    int byte = getc(file);
 
     while (byte != EOF) {
         if (byte != IVT_HEADER_TAG) {
