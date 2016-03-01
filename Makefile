@@ -1,5 +1,6 @@
 CFILES=$(wildcard *.c)
-OBJECTS=$(patsubst %.c, %.o, $(CFILES))
+OBJECTS=$(CFILES:.c=.o)
+DEPS=$(CFILES:.c=.d)
 EXECUTABLE=extractor
 
 all: $(EXECUTABLE)
@@ -7,7 +8,6 @@ all: $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) -o $@ $^ $(CFLAGS) $(LDFLAGS)
 
-DEPS=$(OBJECTS:.o=.d)
 -include $(DEPS)
 
 clean:
